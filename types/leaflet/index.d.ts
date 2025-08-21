@@ -7,15 +7,14 @@ export const version: string;
 
 // TODO: Global: can be undefined removed if option parameter is optional? `baselayerchange?: LayersControlEventHandlerFn | undefined;`
 
-// TODO: `this` throws an error, but it is the same return value as in the original Leaflet code
 export class Class {
     static extend(props: any): { new(...args: any[]): any } & typeof Class;
-    static include(props: any): this;
-    static setDefaultOptions(options: any): this;
-    static mergeOptions(options: any): this;
+    static include(props: any): typeof Class;
+    static setDefaultOptions(options: any): typeof Class;
+    static mergeOptions(options: any): typeof Class;
 
-    static addInitHook(initHookFn: () => void): this;
-    static addInitHook(methodName: string, ...args: any[]): this;
+    static addInitHook(initHookFn: () => void): typeof Class;
+    static addInitHook(methodName: string, ...args: any[]): typeof Class;
 
     initialize(...args: any[]): void;
     callInitHooks(): void;
@@ -149,7 +148,7 @@ export interface Projection {
 }
 
 export namespace Projection {
-    interface LonLat extends Projection {}
+    type LonLat = Projection;
 
     interface Mercator extends Projection {
         R: 6378137;
