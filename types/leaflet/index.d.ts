@@ -148,7 +148,7 @@ export interface Projection {
 }
 
 export namespace Projection {
-    interface LonLat extends Projection {}
+    type LonLat = Projection;
 
     interface Mercator extends Projection {
         R: 6378137;
